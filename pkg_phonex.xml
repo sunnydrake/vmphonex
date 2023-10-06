@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" method="upgrade">
+    <name>Phone-to-Username Authentication</name>
+    <creationDate>2023</creationDate>
+    <packagename>phonex</packagename>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0.0</version>
+    <author>Merrill Squiers/Michael Richey/Oleg Marychev</author>
+    <authorEmail>sunnydrake7@gmail.com</authorEmail>
+    <description>Phone-to-username authentication</description>
+    <files folder="packages">
+        <file type="plugin" id="phonex" group="system">plg_system_phonex-1.0.0.zip</file>
+        <file type="plugin" id="phonex" group="authentication">plg_auth_phonex-1.0.0.zip</file>
+    </files>
+</extension>
