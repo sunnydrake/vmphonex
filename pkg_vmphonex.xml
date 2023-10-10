@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" method="upgrade">
-    <name>Phone-to-Username Authentication</name>
+    <name>VMPhone-to-Username Authentication</name>
     <creationDate>2023</creationDate>
     <packagename>vmphonex</packagename>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
