@@ -16,13 +16,13 @@ use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\Event\SubscriberInterface;
 
 /**
- * @package plgSystemPhonex
+ * @package plgSystemVMPhonex
  * @author Merrill Squiers / Oleg Marychev
  * @since  Joomla 4.0
  * @version 1.0.0
  */
 
-class plgSystemPhonex extends CMSPlugin implements SubscriberInterface
+class plgSystemVMPhonex extends CMSPlugin implements SubscriberInterface
 {
     // The following properties are initialized by CMSPlugin::__construct()
     protected $db;
@@ -55,9 +55,10 @@ class plgSystemPhonex extends CMSPlugin implements SubscriberInterface
 //                    ->where('block = 0');
 	            $query->select('u.id as id, username, password')
 		            ->from('#__users as u')
-		            ->join("RIGHT", "#__fields_values AS fv ON u.id = fv.item_id and fv.value=" . $db->quote($jform['username']))
-		            ->join("RIGHT", "#__fields as f ON fv.field_id = f.id and f.name='phone'")
+		            ->join("RIGHT", "#__virtuemart_userinfos AS fv ON u.id = fv.virtuemart_user_id and fv.phone1=" . $db->quote($jform['username']))
 		            ->where('u.block = 0');
+//		            ->join("RIGHT", "#__fields_values AS fv ON u.id = fv.item_id and fv.value=" . $db->quote($jform['username']))
+//		            ->join("RIGHT", "#__fields as f ON fv.field_id = f.id and f.name='phone'")
                 $db->setQuery($query);
                 $username = $db->loadResult();
                 if( $username !== null ) {

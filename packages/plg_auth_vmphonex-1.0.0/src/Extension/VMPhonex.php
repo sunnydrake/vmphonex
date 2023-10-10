@@ -8,7 +8,7 @@
  * license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Plugin\Authentication\Phonex\Extension;
+namespace Joomla\Plugin\Authentication\VMPhonex\Extension;
 
 use Joomla\CMS\Authentication\Authentication;
 use Joomla\CMS\Factory;
@@ -22,13 +22,13 @@ use Joomla\Database\DatabaseAwareTrait;
 // phpcs:enable PSR1.Files.SideEffects
 
 /**
- * @package Joomla\Plugin\Authentication\Phonex\Extension
+ * @package Joomla\Plugin\Authentication\VMPhonex\Extension
  * @author Merrill Squiers
  * @author Oleg Marychev
  * @since  Joomla 4.0
  * @version 1.0.0
  */
-final class Phonex extends CMSPlugin
+final class VMPhonex extends CMSPlugin
 {
     // NOTE: Cannot use subscriberinterface because Authentication.php explicitly requires 
     // onUserAuthenticate method as of Joomla 4.3.1
@@ -65,9 +65,11 @@ final class Phonex extends CMSPlugin
            // ->where('UPPER(email) = UPPER(' . $this->db->Quote($username) . ')');
         $query->select('u.id as id, username, password')
         ->from('#__users as u')
-	        ->join("RIGHT", "#__fields_values AS fv ON u.id = fv.item_id and fv.value=" . $this->db->Quote($username))
-	        ->join("RIGHT", "#__fields as f ON fv.field_id = f.id and f.name='phone'")
-			->where('u.block = 0');
+	        ->join("RIGHT", "#__virtuemart_userinfos AS fv ON u.id = fv.virtuemart_user_id and fv.phone1=" . $this->db->Quote($username))
+	        ->where('u.block = 0');
+//	        ->join("RIGHT", "#__fields_values AS fv ON u.id = fv.item_id and fv.value=" . $this->db->Quote($username))
+//	        ->join("RIGHT", "#__fields as f ON fv.field_id = f.id and f.name='phone'")
+
         $this->db->setQuery($query);
         $result = $this->db->loadObject();
 
