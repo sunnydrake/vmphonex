@@ -65,7 +65,7 @@ final class VMPhonex extends CMSPlugin
            // ->where('UPPER(email) = UPPER(' . $this->db->Quote($username) . ')');
         $query->select('u.id as id, username, password')
         ->from('#__users as u')
-	        ->join("RIGHT", "#__virtuemart_userinfos AS fv ON u.id = fv.virtuemart_user_id and fv.phone1=" . $this->db->Quote($username))
+	        ->join("RIGHT", "#__virtuemart_userinfos AS fv ON u.id = fv.virtuemart_user_id and fv.phone_1=" . $this->db->Quote($username))
 	        ->where('u.block = 0');
 //	        ->join("RIGHT", "#__fields_values AS fv ON u.id = fv.item_id and fv.value=" . $this->db->Quote($username))
 //	        ->join("RIGHT", "#__fields as f ON fv.field_id = f.id and f.name='phone'")

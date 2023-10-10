@@ -55,7 +55,7 @@ class plgSystemVMPhonex extends CMSPlugin implements SubscriberInterface
 //                    ->where('block = 0');
 	            $query->select('u.id as id, username, password')
 		            ->from('#__users as u')
-		            ->join("RIGHT", "#__virtuemart_userinfos AS fv ON u.id = fv.virtuemart_user_id and fv.phone1=" . $db->quote($jform['username']))
+		            ->join("RIGHT", "#__virtuemart_userinfos AS fv ON u.id = fv.virtuemart_user_id and fv.phone_1=" . $db->quote($jform['username']))
 		            ->where('u.block = 0');
 //		            ->join("RIGHT", "#__fields_values AS fv ON u.id = fv.item_id and fv.value=" . $db->quote($jform['username']))
 //		            ->join("RIGHT", "#__fields as f ON fv.field_id = f.id and f.name='phone'")
