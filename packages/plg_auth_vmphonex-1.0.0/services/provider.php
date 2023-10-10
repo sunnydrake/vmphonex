@@ -17,7 +17,7 @@ use Joomla\Database\DatabaseInterface;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
-use Joomla\Plugin\Authentication\Emailx\Extension\VMPhonex;
+use Joomla\Plugin\Authentication\VMPhonex\Extension\VMPhonex;
 
 return new class () implements ServiceProviderInterface {
     /**
